@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const connectDB = require("./DB/db");
+const dotenv = require("dotenv")
 
 const hotelDataAddedToDb = require("./routes/dataimport.router")
 const categoryDataAddedToDb = require("./routes/categoryimport.router")
@@ -10,6 +11,9 @@ const hotelRouter = require("./routes/hotel")
 const categoryRouter = require("./routes/category.router")
 const AuthRouter = require("./routes/auth.router");
 const WishlistRouter = require("./routes/wishlist.router")
+const cors = require("cors")
+
+dotenv.config();
 
 app.use(express.json());
 connectDB();
