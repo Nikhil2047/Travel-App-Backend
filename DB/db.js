@@ -1,6 +1,9 @@
 const mongoose  = require("mongoose")
+const dotenv = require("dotenv")
 
-const url = "mongodb+srv://NikhilAchari_Dbuser:NikhilAchari1234@cluster2.h3pzrss.mongodb.net/?appName=Cluster2"
+dotenv.config()
+
+const url = process.env.DATABASE_URI
 
 
 const connectDb = async()=>{

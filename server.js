@@ -26,6 +26,6 @@ app.use("/api/hotel",singleHotel)
 app.use("/api/auth",AuthRouter);
 app.use("/api/wishlist",WishlistRouter);
 
-app.listen(8080,()=>{
+app.listen(process.env.PORT || 8080,()=>{
     console.log("Server is up and running...")
 })
