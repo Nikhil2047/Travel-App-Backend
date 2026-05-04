@@ -12,9 +12,10 @@ const categoryRouter = require("./routes/category.router")
 const AuthRouter = require("./routes/auth.router");
 const WishlistRouter = require("./routes/wishlist.router")
 const cors = require("cors")
+const PORT = 8080
 
 dotenv.config();
-
+app.use(cors())
 app.use(express.json());
 connectDB();
 app.get("/",(req,res)=>{
@@ -30,6 +31,6 @@ app.use("/api/hotel",singleHotel)
 app.use("/api/auth",AuthRouter);
 app.use("/api/wishlist",WishlistRouter);
 
-app.listen(process.env.PORT || 8080,()=>{
+app.listen(process.env.PORT || PORT,()=>{
     console.log("Server is up and running...")
 })
