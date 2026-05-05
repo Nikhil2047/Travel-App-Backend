@@ -7,7 +7,7 @@ const hotelHandler = async (req,res)=>{
     if(hotelCategory){
         hotels = await Hotel.find({category:hotelCategory})
     }else{
-        hotels = await Hotel.find();
+        hotels = await Hotel.find({});
     }
     hotels ? res.json(hotels) : res.status(404).json({msg:"No Data Found"})
    } catch (error) {
