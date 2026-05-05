@@ -1,15 +1,16 @@
+const dotenv = require("dotenv")
+dotenv.config();
+
 const express = require("express");
 const app = express();
 const connectDB = require("./DB/db");
-const dotenv = require("dotenv")
-
-
-dotenv.config();
 
 const hotelDataAddedToDb = require("./routes/dataimport.router")
 const categoryDataAddedToDb = require("./routes/categoryimport.router")
 const singleHotel = require("./routes/singlehotel.route")
+
 connectDB();
+
 const hotelRouter = require("./routes/hotel")
 const categoryRouter = require("./routes/category.router")
 const AuthRouter = require("./routes/auth.router");
