@@ -1,7 +1,7 @@
 const  {v4: uuid} = require("uuid")
 
 const hotels = {
-    "data" : [
+  "data" : [
   {
     "name": "Whispering Pines Cottages",
     "category": "National Parks",
