@@ -9,11 +9,11 @@ const loginHandler = async(req,res)=>{
         const user = await User.findOne({number:req.body.number});
         if(user){
             const result = await bcrypt.compare(req.body.password, user.password)
-            if(result, {...rest}){
+            if(result){
                 const token = jwt.sign(
                     {id:user._id,},"secretkey"
                 )
-                 return res.json({ ...rest,token, success: true});
+                 return res.json({ token, success: true});
             }else{
                 return res.json({ msg: "Wrong Password", success: false });
             }
