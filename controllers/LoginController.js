@@ -11,7 +11,7 @@ const loginHandler = async(req,res)=>{
             const result = await bcrypt.compare(req.body.password, user.password)
             if(result){
                 const token = jwt.sign(
-                    {id:user._id,},"secretkey"
+                    {id:user._id, username: user.username},"secretkey"
                 )
                  return res.json({ token, success: true});
             }else{
