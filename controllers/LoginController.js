@@ -11,9 +11,9 @@ const loginHandler = async(req,res)=>{
             const result = await bcrypt.compare(req.body.password, user.password)
             if(result){
                 const token = jwt.sign(
-                    {id:user._id, username: user.username},"secretkey"
+                    {id:user._id},"secretkey"
                 )
-                 return res.json({ token, success: true});
+                 return res.json({ token, username: user.username, success: true});
             }else{
                 return res.json({ msg: "Wrong Password", success: false });
             }
